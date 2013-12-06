@@ -17,21 +17,29 @@
 	var playing = false;
 	
     function playAudio() {
+    	console.log("===================> playAudio() called...");
 		if (!playing) {
-                        myMedia.play();	
+			console.log("===================> !playing...");
+            myMedia.play();
+            console.log("play() is called...");
 			document.getElementById('play').src = "images/pause.png";
-			playing = true;	
+			playing = true;
+			console.log("playing : "+playing);
+			console.log("play's src : "+document.getElementById('play').src);
 		} else {
+			console.log("===================> playing...");
 			myMedia.pause();
-                        document.getElementById('play').src = "images/play.png";    
-                        playing = false; 
+            document.getElementById('play').src = "images/play.png";    
+            playing = false;
 		}
     }
  
     function stopAudio() {
+    	console.log("===================> stopAudio() called...");
+    	
 		myMedia.stop();
 		playing = false;
-                document.getElementById('play').src = "images/play.png";    
+        document.getElementById('play').src = "images/play.png";    
 		document.getElementById('audio_position').innerHTML = "0.000 sec";
 	}
  
@@ -51,8 +59,8 @@
 		}
 		
 		// Get the new media file
-		var yourSelect = document.getElementById('playlist');		
-                myMedia = new Media(yourSelect.options[yourSelect.selectedIndex].value, stopAudio, null);
+		var yourSelect = document.getElementById('playlist');
+		myMedia = new Media(yourSelect.options[yourSelect.selectedIndex].value, stopAudio, null);
  
 		// Update media position every second
 	        var mediaTimer = setInterval(function() {
