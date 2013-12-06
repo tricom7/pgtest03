@@ -1,9 +1,8 @@
 package com.example.pgtest03;
 
+import org.apache.cordova.DroidGap;
+
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import org.apache.cordova.*; 
 
 public class MainActivity extends DroidGap {
 
