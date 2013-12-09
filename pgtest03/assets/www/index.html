@@ -20,6 +20,7 @@
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady () {
+        	console.log("lsd deviceready");
             myMedia = new Media("/android_asset/www/test.mp3", 
                 function(){
                     if (myMedia) {
@@ -28,12 +29,13 @@
                     }
                 }, 
                 function(error){
-                    console.log("LSD Error"+error.message);
+                    console.log("Error ³µÀ½: "+error.message);
                 }
             );
         }
 
         $(document).ready(function(){
+        	console.log("lsd document ready");
             $('.one').click(function(event){ 
                 myMedia.play();
             });
@@ -43,6 +45,10 @@
         </script>
       </head>
       <body>
-        <button class="one">play</button>
+      	<div id="mainHtml"></div>
+    	<button class="one">1</button>
+      	<button class="two">2</button>
+      	<button class="three">3</button>
+      	<button class="four">4</button>
       </body>
     </html>
