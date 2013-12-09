@@ -39,6 +39,12 @@
 
 
 
+<uses-feature android:name="android.hardware.camera" />
+
+<uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+
 
 
 
@@ -53,7 +59,7 @@
         <activity
             android:name="com.example.pgtest03.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
