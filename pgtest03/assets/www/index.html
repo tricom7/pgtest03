@@ -20,25 +20,62 @@
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady () {
-        	console.log("lsd deviceready");
-            myMedia = new Media("/android_asset/www/test.mp3", 
-                function(){
-                    if (myMedia) {
-                        myMedia.stop();
-                        myMedia.release();
-                    }
-                }, 
-                function(error){
-                    console.log("Error ³µÀ½: "+error.message);
-                }
-            );
+        	console.log("2 lsd deviceready");
+        	
+        	var str="";
+        	str += "<button class='one'>111</button>";
+        	str += "<button class='two'>222</button>";
+            str += "<button class='three'>333</button>";
+            str += "<button class='four'>444</button>";
+        	
+        	//playSound("/android_asset/www/test.mp3");
+            $("#mainHtml").append(str);
+            
+            
+            $('.one').click(function(event){ 
+            	playSound("/android_asset/www/test.mp3");
+            });
+            
+            $('.two').click(function(event){ 
+            	playSound("/android_asset/www/test2.mp3");
+            });
+            
+            $('.three').click(function(event){ 
+            	playSound("/android_asset/www/test3.mp3");
+            });
+            
+            $('.four').click(function(event){ 
+            	playSound("/android_asset/www/test4.mp3");
+            });
+            
         }
 
+        function playSound(soundPath) {
+
+            if (myMedia) {
+                myMedia.stop();
+                myMedia.release();
+            }
+        	
+            myMedia = new Media(soundPath, 
+                    function(){
+                        if (myMedia) {
+                            myMedia.stop();
+                            myMedia.release();
+                        }
+                    }, 
+                    function(error){
+                        console.log("Error ³µÀ½: "+error.message);
+                    }
+                );
+            
+            myMedia.play();
+        }
+        
+        
         $(document).ready(function(){
-        	console.log("lsd document ready");
-            $('.one').click(function(event){ 
-                myMedia.play();
-            });
+        	console.log("1 lsd document ready");
+
         });
 
 
@@ -46,9 +83,6 @@
       </head>
       <body>
       	<div id="mainHtml"></div>
-    	<button class="one">1</button>
-      	<button class="two">2</button>
-      	<button class="three">3</button>
-      	<button class="four">4</button>
+
       </body>
     </html>
